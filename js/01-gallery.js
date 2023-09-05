@@ -33,17 +33,17 @@ function handleClick(e) {
     return;
   }
 
-  const selectedImage = e.target.getAttribute("data-source");
+  const selectedImage = e.target.dataset.source;
 
   const imageWindow = basicLightbox.create(`
-    <img src="${selectedImage}" width="800" height="600">
+    <img src="${selectedImage}" width="800" height="600" >
 `);
 
   imageWindow.show();
 
   gallery.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      instance.close();
+      imageWindow.close();
     }
   });
 }
