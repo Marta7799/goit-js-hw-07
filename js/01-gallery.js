@@ -41,9 +41,11 @@ function handleClick(e) {
 
   imageWindow.show();
 
-  gallery.addEventListener("keydown", (e) => {
+  gallery.addEventListener("keydown", onEsc);
+  function onEsc(e) {
     if (e.key === "Escape") {
       imageWindow.close();
+      gallery.removeEventListener("keydown", onEsc);
     }
-  });
+  }
 }
